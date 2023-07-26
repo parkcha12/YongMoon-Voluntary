@@ -21,7 +21,7 @@
       article .desc {margin: 50px;}
       article .object {margin: 50px;}
     </style>
-    <title>다 더하기</title>
+    <title>다 곱하기</title>
     <meta charset="utf-8">
   
 </head>
@@ -29,7 +29,7 @@
 <body>   
     <article>
           <div class="problem">
-            <h1>n을 입력하면 1부터 n까지 다 더한 값이 나오는 입력창</h1>
+            <h1>n을 입력하면 1부터 n까지 다 곱한 값이 나오는 입력창</h1>
             <input
               class="inputN"
               type="text"
@@ -59,13 +59,17 @@
           const submitBtn = document.querySelector(".submitBtn");
 
           function sumAll(n) {
-            // 1부터 n까지 수를 모두 더하는 함수를 구현하세요!
-            
-            
-          }
+            // 1부터 n까지 수를 모두 곱한 함수를 구현하세요!
+            let sum_ = 9;
+            for(let i=9; i<=n; i++ ){
+              sum_ = sum_ * i;
+            }
+            return sum_;
+        }
 
           // submit 버튼을 누르면 실행될 함수에요.
           function submit() {
+            
             // 입력창에 있는 값을 n에 저장해요.
             let n = parseInt(input.value);
             // 결과값을 출력해요.
@@ -75,7 +79,7 @@
           submitBtn.addEventListener("click", submit);
 
         </script>
-      </body>
+      </body>     
   </div>
   
 </body>
