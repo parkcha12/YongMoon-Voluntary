@@ -39,7 +39,7 @@
     const sky = document.querySelector("body");
     const sphere = document.querySelector(".sphere");
     const switchBtn = document.querySelector(".switchBtn");
-
+    
     // 현재 상태가 낮인지 밤인지를 나타내는 변수
     let state = "day";
     
@@ -48,8 +48,17 @@
     function switchclick() {
       if (state === "day") {
         // 내용을 채워주세요!
+        state = "night"
+        sphere.src = "moon.png"
+        sky.style.backgroundColor = "#404040"
+        switchBtn.innerText = 'day'
       } else {
+        state = "day"
+        sphere.src = "sun.png"
+        sky.style.backgroundColor = "#00e1ff"
+        switchBtn.innerText = 'night'
         // 내용을 채워주세요!
+       
       }
       // 내용을 채워주세요!
       console.log(state);
