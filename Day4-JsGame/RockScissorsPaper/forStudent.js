@@ -53,20 +53,25 @@ const countdownSubmit = () => {
     if (countdown.innerHTML == "Ready" && !(select[0] == undefined)) { // 만약 텍스트가 Ready로 되어있으며, select 배열이 [undenified]가 아니라면 실행
         countdown.innerHTML = "3";
         setTimeout(() => { // 1초 후 Ready 위치에 있는 text를 2로 변경
+
             countdown.innerHTML = "2";
         }, 1000);
         setTimeout(() => { // 2초 후 Ready 위치에 있는 text를 1로 변경
+
             countdown.innerHTML = "1";
         }, 2000);
         setTimeout(() => { // 3초 후 Ready 위치에 있는 text를 0으로 변경
+
             countdown.innerHTML = "0";
         }, 3000);
         setTimeout(() => { // 4초 후 Ready 위치에 있는 text를 Win, Draw, Lose 중 하나로 변경
+
             rotate(); // 상대편의 카드를 뒤집는 함수 실행
             countdown.innerHTML = start();
         }, 4000);
         setTimeout(() => { // 9초 후 원상복귀
             rotate(); // 상대편의 카드를 뒤집는 함수 실행(원상복귀)
+
             countdown.innerHTML = "Ready"; // 다시 Ready로 변경
         }, 9000);
     } else if(select[0] == undefined) { // 가위바위보가 선택되지 않으면 select 배열은 초기 설정대로 [undefined]일 것, 따라서 가위바위보를 선택하지 않은 것이므로 알림을 띄워주며, 가위바위보 승패 판단을 하지 않는다.
@@ -111,6 +116,9 @@ const randomNumber = (n, m) => { // n부터 m까지의 랜덤한 숫자를 만�
      * n~m까지의 난수를 발생시키는 random 함수를 만드세요! (Tip. 2일차 JavaScript 기초 파일의 27페이지를 확인해보세요!)
      * return 타입은 정수 타입인 INT입니다!
      */
+    const rand1 = Math.floor(Math.random()*(m - n+1))+n;
+    return rand1;
+    
 };
 
 const judge = (answer, submit) => { // 결과를 "Draw", "Lose", "Win" 형태로 도출하여 String의 형태로 return하세요!
@@ -121,4 +129,18 @@ const judge = (answer, submit) => { // 결과를 "Draw", "Lose", "Win" 형태로
      * answser와 submit의 값을 비교하여 자신이 비겼는지, 졌는지, 이겼는지 판단하는 함수를 만드세요! 
      * return 타입은 문자열인 String이며, "Draw", "Lose", "Win" 중 하나로 return되게 하면 됩니다!
      */
+    console.log(answer);
+    console.log(submit);
+    if (answer === submit) {
+        return "Draw";
+    } else if (
+        (answer === -1 && submit === 0) ||
+        (answer === 0 && submit === 1) ||
+        (answer === 1 && submit === -1)
+    ) {
+        return "Win";
+    } else {
+        return "Lose";
+    }
+
 };
